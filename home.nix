@@ -38,6 +38,8 @@
     ruby-lsp
     unityhub
     ffmpeg
+    discord
+    obs-studio
   ];
 
   imports = [
