@@ -45,3 +45,11 @@ require("mason").setup({
         "github:Crashdummyy/mason-registry",
     },
 })
+
+-- Use dedicated folders for swap, backup, and undo files
+vim.opt.backupdir = vim.fn.expand("~/.vim/backup//")
+vim.opt.directory = vim.fn.expand("~/.vim/swap//")
+vim.opt.undodir = vim.fn.expand("~/.vim/undo//")
+
+-- Enable persistent undo (optional, but useful)
+vim.opt.undofile = true

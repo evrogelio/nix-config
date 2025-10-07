@@ -40,6 +40,7 @@
     ffmpeg
     discord
     obs-studio
+    blender
   ];
 
   imports = [
