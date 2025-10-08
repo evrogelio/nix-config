@@ -41,6 +41,7 @@
     discord
     obs-studio
     blender
+    insomnia
   ];
 
   imports = [
