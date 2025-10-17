@@ -29,6 +29,8 @@
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.svelte-language-server
+    nodePackages.vscode-html-language-server
+    nodePackages.vscode-css-language-server
     tailwindcss-language-server
     emmet-ls
     nautilus
