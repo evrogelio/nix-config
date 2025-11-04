@@ -29,8 +29,7 @@
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.svelte-language-server
-    nodePackages.vscode-html-languageservice
-    nodePackages.vscode-css-languageservice
+    nodePackages.vscode-langservers-extracted
     tailwindcss-language-server
     emmet-ls
     nautilus
@@ -55,6 +54,7 @@
     ./modules/kanata.nix
     ./modules/lock.nix
     ./modules/tmux.nix
+    ./modules/udiskie.nix
   ];
   programs.home-manager.enable = true;
   programs.vscode.enable = true;

@@ -43,7 +43,7 @@
       }
    
       listener {
-        timeout = 600
+        timeout = 6000
         on-timeout = systemctl suspend
       }
     '';
