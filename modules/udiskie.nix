@@ -3,5 +3,5 @@
     enable = true;
     tray = true;
     notify = true;
-  }
+  };
 }
