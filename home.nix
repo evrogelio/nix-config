@@ -30,6 +30,7 @@
     nodePackages.typescript-language-server
     nodePackages.svelte-language-server
     nodePackages.vscode-langservers-extracted
+    nodePackages.clasp
     tailwindcss-language-server
     emmet-ls
     nautilus
@@ -43,6 +44,7 @@
     obs-studio
     blender
     insomnia
+    postman
   ];
 
   imports = [
