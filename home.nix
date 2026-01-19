@@ -30,7 +30,7 @@
     nodePackages.typescript-language-server
     nodePackages.svelte-language-server
     nodePackages.vscode-langservers-extracted
-    nodePackages.clasp
+    nodePackages.@google/clasp
     tailwindcss-language-server
     emmet-ls
     nautilus
