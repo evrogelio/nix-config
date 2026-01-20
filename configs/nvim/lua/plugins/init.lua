@@ -19,5 +19,26 @@ return {
   {
     "tpope/vim-rails"
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false }
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    lazy = false,
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-f>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  }
 }

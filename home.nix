@@ -1,5 +1,10 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, inputs, ... }:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  }; 
+in
 {
   home.username = "rogelioev";
   home.homeDirectory = "/home/rogelioev";
@@ -10,6 +15,7 @@
   home.packages = with pkgs; [
     imagemagick
     bun
+    nodejs_24
     obsidian
     unzip
     gcc
@@ -30,7 +36,7 @@
     nodePackages.typescript-language-server
     nodePackages.svelte-language-server
     nodePackages.vscode-langservers-extracted
-    nodePackages.@google/clasp
+    nodePackages."@google/clasp"
     tailwindcss-language-server
     emmet-ls
     nautilus
@@ -45,6 +51,7 @@
     blender
     insomnia
     postman
+    unstable.github-copilot-cli
   ];
 
   imports = [
