@@ -52,6 +52,9 @@ in
     insomnia
     postman
     unstable.github-copilot-cli
+    vlc
+    calibre
+    calibre-gui
   ];
 
   imports = [
