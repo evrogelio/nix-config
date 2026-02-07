@@ -54,7 +54,6 @@ in
     unstable.github-copilot-cli
     vlc
     calibre
-    calibre-gui
   ];
 
   imports = [
