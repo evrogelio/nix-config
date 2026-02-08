@@ -55,6 +55,7 @@ in
     vlc
     calibre
     unrar
+    zip
   ];
 
   imports = [
