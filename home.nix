@@ -54,6 +54,7 @@ in
     unstable.github-copilot-cli
     vlc
     calibre
+    unrar
   ];
 
   imports = [
