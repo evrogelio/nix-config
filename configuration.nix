@@ -16,6 +16,8 @@
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
   '';
+  services.udev.packages = with pkgs; [ calibre ];
+  services.gvfs.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -44,7 +46,7 @@
     isNormalUser = true;
     description = "Rogelio Echavarria";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "uinput" "input" "podman" "adbusers"];
+    extraGroups = [ "networkmanager" "wheel" "uinput" "input" "podman" "adbusers" "lp" "scanner"];
     packages = with pkgs; [];
     linger = true;
   };
