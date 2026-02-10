@@ -40,5 +40,24 @@ return {
         panel = { enabled = false },
       })
     end,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    event = "VeryLazy", -- Loads the plugin when you start typing
+    init = function()
+      -- These settings are required for ufo to work properly
+      vim.o.foldcolumn = '1' -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+    end,
+    config = function()
+      require("ufo").setup({
+        provider_selector = function(bufnr, filetype, buftype)
+          return { "lsp", "indent" }
+        end,
+      })
+    end,
   }
 }
