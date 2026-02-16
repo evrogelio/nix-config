@@ -56,6 +56,8 @@ in
     calibre
     unrar
     zip
+    kcc
+    brave
   ];
 
   imports = [
