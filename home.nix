@@ -70,6 +70,8 @@ in
     ./modules/lock.nix
     ./modules/tmux.nix
     ./modules/udiskie.nix
+    ./modules/waybar.nix
+    ./modules/wofi.nix
   ];
   programs.home-manager.enable = true;
   programs.vscode.enable = true;

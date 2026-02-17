@@ -32,8 +32,9 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    layout = "us,latam";
+    variant = "altgr-intl,"; # The comma means 'altgr-intl' for US, and default for Latam
+    options = "grp:win_space_toggle";
   };
 
   # Disable power button default behaviour
@@ -69,7 +70,7 @@
 
   environment.systemPackages = with pkgs; [
     # Core
-    hyprland waybar wofi dunst
+    hyprland waybar dunst
 
     # Audio & Bluetooth
     pipewire wireplumber pavucontrol bluez blueman bluez-tools

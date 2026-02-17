@@ -1,7 +1,7 @@
 {
-  "modules-left": ["workspaces"],
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "pulseaudio", "network", "battery", "power"],
+  "modules-right": ["tray", "pulseaudio", "network", "battery", "power", "hyprland/language"],
 
   "clock": {
     "format": "{:%a %d %b %H:%M}",
@@ -37,6 +37,11 @@
     "format": "",
     "tooltip": false,
     "on-click": "wlogout"
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-es": "MX"
   }
 }
 

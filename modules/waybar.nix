@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
+
+{ config, pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
-    waybar
-  ];
+  programs.waybar = {
+    enable = true;
+  };
 
   xdg.configFile."waybar/config".source = ../configs/waybar-config.jsonc;
-  xdg.configFile."waybar/style.css".source = ../configs/waybar-style.css;
-}
+  xdg.configFile."waybar/style.css".source = ../configs/waybar-styles.css;
 
+}

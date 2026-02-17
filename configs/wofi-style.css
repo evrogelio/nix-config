@@ -1,0 +1,59 @@
+/* The main container */
+window {
+  background-color: rgba(30, 30, 30, 0.9);
+  /* Deep dark grey with transparency */
+  color: #ffffff;
+  font-family: "SF Pro Display", "Inter", "JetBrainsMono Nerd Font";
+  /* macOS-like fonts */
+  font-size: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Subtle "light leak" border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* The Search Input (The "Spotlight" bar) */
+#input {
+  margin: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Slightly lighter than the window */
+  color: #ffffff;
+  outline: none;
+}
+
+/* Remove the "inner" border of the search bar when typing */
+#input:focus {
+  border: 1px solid #007aff;
+  /* macOS Blue */
+}
+
+/* The results list */
+#inner-box {
+  margin: 5px 15px 15px 15px;
+}
+
+/* Individual list items */
+#entry {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+/* Selected state (The blue macOS highlight) */
+#entry:selected {
+  background: linear-gradient(90deg, #007aff, #005bb5);
+  outline: none;
+}
+
+/* Text styling inside the list */
+#text {
+  margin-left: 10px;
+}
+
+#text:selected {
+  color: #ffffff;
+  font-weight: 500;
+}

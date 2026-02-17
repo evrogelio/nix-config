@@ -15,11 +15,34 @@ window#waybar {
   padding: 0 6px;
   margin: 2px;
   border-radius: 6px;
+  color: #d8dee9;
+  background: transparent;
 }
 
-#workspaces button.focused {
-  background: #5e81ac;
+#workspaces button.active {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+#workspaces button.persistent {
+  color: #81a1c1;
+}
+
+#workspaces button.urgent {
+  background: #bf616a;
   color: #ffffff;
+}
+
+.modules-right>widget>* {
+  margin-left: 20px;
+}
+
+#tray {
+  margin-left: 0;
+}
+
+#language {
+  margin-right: 20px;
 }
 
 #battery.charging {
@@ -38,4 +61,3 @@ window#waybar {
   padding: 0 10px;
   color: #bf616a;
 }
-
