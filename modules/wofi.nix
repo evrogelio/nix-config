@@ -7,7 +7,6 @@
       width = 600;
       height = 300; # Shorter height feels more like Spotlight
       location = "center";
-      yoffset = -150; # This pulls it up from the center toward the top
       show = "drun";
       prompt = "Search";
       filter_rate = 100;
