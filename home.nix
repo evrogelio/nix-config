@@ -58,6 +58,8 @@ in
     zip
     kcc
     brave
+    gemini-cli
+    figma-linux
   ];
 
   imports = [
@@ -72,9 +74,24 @@ in
     ./modules/udiskie.nix
     ./modules/waybar.nix
     ./modules/wofi.nix
+    ./modules/cider.nix
   ];
   programs.home-manager.enable = true;
-  programs.vscode.enable = true;
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      ms-toolsai.jupyter
+      ms-vscode.cpptools
+      ms-vscode.cmake-tools
+      esbenp.prettier-vscode
+      dbaeumer.vscode-eslint
+      redhat.vscode-yaml
+      eamodio.gitlens
+      vscodevim.vim
+    ];
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
