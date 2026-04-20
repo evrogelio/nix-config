@@ -5,10 +5,10 @@ let
     pname = "cider-2";
     version = "3.1.8";
 
-    src = ../binaries/Cider.deb;
+    src = ../binaries/cider.deb;
 
     nativeBuildInputs = with pkgs; [
-      dpkg
+      binutils
       autoPatchelfHook
       makeWrapper
     ];
@@ -54,20 +54,34 @@ let
       xorg.libxshmfence
     ];
 
-    unpackPhase = "dpkg-deb -x $src .";
+    unpackPhase = ''
+      ar x $src
+      tar -xvf data.tar.zst || tar -xvf data.tar.xz
+    '';
 
     installPhase = ''
       mkdir -p $out/bin
-      cp -r usr/share $out/share
-      cp -r opt/Cider/cider $out/bin/cider
+      mkdir -p $out/lib/cider
       
-      # Fix the icon and path in the desktop file
+      cp -r usr/share $out/share
+      cp -r usr/lib/cider/* $out/lib/cider/
+
+      # We don't symlink yet, we wrap the actual binary into $out/bin
+    '';
+
+    postFixup = ''
+      # Wrap the REAL binary from the lib folder and place the wrapper in bin/cider
+      # Note the capital 'C' in the source path from your logs
+      makeWrapper $out/lib/cider/Cider $out/bin/cider \
+        --add-flags "--no-sandbox" \
+        --prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath buildInputs}"
+        
+      # Fix the desktop file to use our lowercase 'cider' wrapper
       substituteInPlace $out/share/applications/cider.desktop \
-        --replace "/opt/Cider/cider" "$out/bin/cider"
+        --replace "/usr/bin/cider" "cider"
     '';
   };
 in
 {
   home.packages = [ cider-2 ];
-  
 }
