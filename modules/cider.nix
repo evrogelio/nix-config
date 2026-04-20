@@ -5,7 +5,7 @@ let
     pname = "cider-2";
     version = "3.1.8";
 
-    src = ../binaries/cider.deb;
+    src = ../binaries/Cider.deb;
 
     nativeBuildInputs = with pkgs; [
       dpkg
