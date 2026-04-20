@@ -3,25 +3,23 @@
 {
   programs.waybar = {
     enable = true;
-    systemd = {
-      enable = true;
-      # This ensures it targets the session correctly
-      target = "graphical-session.target"; 
-    };
+    systemd.enable = true;
+    systemd.target = "graphical-session.target";
   };
 
   systemd.user.services.waybar = {
     Unit = {
-      After = [ "graphical-session.target" ];
+      ConditionEnvironment = lib.mkForce "";
+      After = lib.mkForce "";
     };
     Service = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
+      ExecStart = lib.mkForce "${pkgs.waybar}/bin/waybar";
       Restart = "on-failure";
       RestartSec = "2s";
-      Environment = lib.mkForce "PATH=${lib.makeBinPath [ pkgs.waybar pkgs.hyprland ]}";
     };
     Install = {
-      WantedBy = [ "default.target" ]; 
+      # Change this from graphical-session.target to default.target
+      WantedBy = lib.mkForce [ "default.target" ]; 
     };
   };
 
