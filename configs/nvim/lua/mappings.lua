@@ -13,4 +13,4 @@ map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", {desc = "Window Up"})
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-
+map("v", "<leader>y", '"+y', { desc = "Copy to system clipboard" })
