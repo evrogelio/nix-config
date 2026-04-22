@@ -30,7 +30,8 @@
   },
 
   "tray": {
-    "icon-size": 18
+    "icon-size": 18,
+    "spacing": 7
   },
 
   "power": {
