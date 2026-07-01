@@ -60,6 +60,7 @@ in
     brave
     gemini-cli
     figma-linux
+    playerctl
   ];
 
   imports = [
