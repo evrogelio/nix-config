@@ -60,6 +60,8 @@ in
     brave
     gemini-cli
     figma-linux
+    transmission_4-qt
+    google-cloud-sdk
     playerctl
   ];
 
