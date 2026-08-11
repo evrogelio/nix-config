@@ -15,5 +15,8 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  install = {
+    colorscheme = { "catppuccin", "habamax" },
+  },
   lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
 })
