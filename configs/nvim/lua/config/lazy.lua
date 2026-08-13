@@ -19,4 +19,7 @@ require("lazy").setup({
     colorscheme = { "catppuccin", "habamax" },
   },
   lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
+  git = {
+    timeout = 3600
+  }
 })

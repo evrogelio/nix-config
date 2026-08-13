@@ -4,10 +4,10 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   event = "VeryLazy",
   keys = {
-    { "<Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-    { "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-    { "<leader>bp", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer" },
-    { "<leader>bd", "<cmd>bdelete<cr>", desc = "Close Current Buffer" },
+    { "<Tab>",      "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+    { "<S-Tab>",    "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+    { "<leader>bp", "<cmd>BufferLinePick<cr>",      desc = "Pick Buffer" },
+    { "<leader>bd", "<cmd>bdelete<cr>",             desc = "Close Current Buffer" },
   },
   opts = {
     options = {
@@ -17,8 +17,12 @@ return {
       offsets = {
         {
           filetype = "NvimTree",
-          text = "File Explorer",
+          text = function()
+            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+            return "󰉋 " .. dir_name
+          end,
           text_align = "left",
+          highlight = "Directory",
           separator = true,
         },
       },

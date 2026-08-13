@@ -3,7 +3,6 @@
 {
   home.packages = [ pkgs.kanata ];
 
-  # Put your kanata.kbd into ~/.config/kanata/
   xdg.configFile."kanata/kanata.kbd".source = ../configs/kanata.kbd;
 
   systemd.user.services.kanata = {

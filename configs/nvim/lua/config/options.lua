@@ -9,3 +9,5 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 
 vim.opt.background = "light"
+
+vim.opt.signcolumn = "yes"

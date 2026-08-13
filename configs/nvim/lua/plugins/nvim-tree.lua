@@ -1,5 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  lazy = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -14,7 +15,12 @@ return {
       number = false,
       relativenumber = false,
     },
+    update_focused_file = {
+      enable = true,
+      update_root = true,
+    },
     renderer = {
+      root_folder_label = false,
       group_empty = true,
       icons = {
         show = {
@@ -32,7 +38,6 @@ return {
   config = function(_, opts)
     require("nvim-tree").setup(opts)
 
-    -- Auto-open nvim-tree when launching Neovim in a directory
     vim.api.nvim_create_autocmd("VimEnter", {
       callback = function(data)
         local is_directory = vim.fn.isdirectory(data.file) == 1

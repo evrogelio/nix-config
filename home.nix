@@ -31,19 +31,12 @@ in
     dbeaver-bin
     lazygit
     delta
-    lua-language-server
     nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.svelte-language-server
-    nodePackages.vscode-langservers-extracted
     nodePackages."@google/clasp"
-    tailwindcss-language-server
-    emmet-ls
     nautilus
     spotify
     prismlauncher
     scrcpy
-    ruby-lsp
     unityhub
     ffmpeg
     discord
@@ -78,6 +71,7 @@ in
     ./modules/waybar.nix
     ./modules/wofi.nix
     ./modules/cider.nix
+    ./modules/lsp.nix
   ];
   programs.home-manager.enable = true;
   programs.vscode = {
