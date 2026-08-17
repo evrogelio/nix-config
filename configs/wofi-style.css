@@ -1,6 +1,6 @@
 /* The main container */
 window {
-  background-color: rgba(45, 45, 45, 0.9);
+  background-color: rgba(45, 45, 45, 1);
   /* Deep dark grey with transparency */
   color: #ffffff;
   font-family: "SF Pro Display", "Inter", "JetBrainsMono Nerd Font";

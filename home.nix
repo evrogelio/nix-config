@@ -60,6 +60,7 @@ in
 
   imports = [
     ./modules/hyprland.nix
+    ./modules/hyprpaper.nix
     ./modules/wlogout.nix
     ./modules/zsh.nix
     ./modules/nvim.nix

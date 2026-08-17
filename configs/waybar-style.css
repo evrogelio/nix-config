@@ -1,13 +1,13 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "Ubuntu Mono Nerd Font", "Ubuntu Mono", monospace;
   font-size: 12px;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(30, 30, 30, 0.9);
+  background: transparent;
   color: #ffffff;
 }
 
