@@ -12,8 +12,9 @@ return {
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
-        telescope = { enabled = true },
+        telescope = true,
         bufferline = true,
+        lualine = {},
       },
     })
 

@@ -28,8 +28,10 @@ return {
 
         keymap("v", "<leader>rv", function()
           vim.lsp.buf.code_action({
-            filter = function(a) return a.title:lower():match("extract") or a.title:lower():match("variable") or
-              a.title:lower():match("constant") end,
+            filter = function(a)
+              return a.title:lower():match("extract") or a.title:lower():match("variable") or
+                  a.title:lower():match("constant")
+            end,
             apply = true,
           })
         end, vim.tbl_extend("force", opts, { desc = "Extract Variable (LSP)" }))
@@ -71,6 +73,11 @@ return {
         border = "rounded",
         source = true,
       },
+    })
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = function()
+        vim.diagnostic.open_float(nil, { focusable = false })
+      end,
     })
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
