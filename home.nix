@@ -23,7 +23,6 @@ in
     podman-compose
     buildah
     skopeo
-    openfortivpn
     grim
     slurp
     swappy
@@ -34,10 +33,8 @@ in
     nodePackages.typescript
     nodePackages."@google/clasp"
     nautilus
-    spotify
     prismlauncher
     scrcpy
-    unityhub
     ffmpeg
     discord
     obs-studio
@@ -51,10 +48,8 @@ in
     zip
     kcc
     brave
-    gemini-cli
     figma-linux
     transmission_4-qt
-    google-cloud-sdk
     playerctl
   ];
 
@@ -75,20 +70,6 @@ in
     ./modules/lsp.nix
   ];
   programs.home-manager.enable = true;
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-python.python
-      ms-toolsai.jupyter
-      ms-vscode.cpptools
-      ms-vscode.cmake-tools
-      esbenp.prettier-vscode
-      dbaeumer.vscode-eslint
-      redhat.vscode-yaml
-      eamodio.gitlens
-      vscodevim.vim
-    ];
-  };
 
   programs.direnv = {
     enable = true;
