@@ -1,16 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
 
   users.groups.uinput = {};
   services.udev.extraRules = ''
@@ -69,23 +62,11 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # Core
-    hyprland waybar dunst
-
-    # Audio & Bluetooth
-    pipewire wireplumber pavucontrol bluez blueman bluez-tools
-
-    # Network
-    networkmanager networkmanagerapplet
-
     # Utils
-    grim slurp wl-clipboard greetd.tuigreet
-
-    # Brightness
-    brightnessctl
+    greetd.tuigreet
 
     # Apps
-    google-chrome git
+    git
 
     # Home manager
     home-manager

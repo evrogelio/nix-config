@@ -10,7 +10,7 @@ let
       message = ''
         Download the cider.deb file from the official source and place it in the Nix store. You can use the following command to download it:
           nix-store --add-fixed sha256 /path/to/cider.deb
-      ''
+      '';
     };
 
     nativeBuildInputs = with pkgs; [

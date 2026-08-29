@@ -10,31 +10,52 @@
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs: 
     let 
-      lib =  nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      sharedHomeManager = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit inputs; };
+        home-manager.users.rogelioev = {
+          imports = [
+            ./home.nix
+            ./modules/cli-tools.nix
+            ./modules/desktop.nix
+          ];
+        };
+      };
     in {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
-	        inherit system;
+        personal-pc = nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = { inherit inputs; };
-	        modules = [
-	          ./configuration.nix
-	          home-manager.nixosModules.home-manager {
-	            home-manager.useGlobalPkgs = true;
-	            home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-	            home-manager.users.rogelioev = import ./home.nix;
-	          }
-	        ];
-	      };        
+          modules = [
+            ./hosts/personal-pc/configuration.nix
+            home-manager.nixosModules.home-manager
+            sharedHomeManager
+          ];
+        };        
+
+        work-pc = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/work-pc/configuration.nix
+            home-manager.nixosModules.home-manager
+            sharedHomeManager
+          ];
+        };
       };
 
       homeConfigurations.rogelioev = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit  inputs; };
-        modules = [ ./home.nix ];
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home.nix
+          ./modules/cli-tools.nix
+          ./modules/desktop.nix
+        ];
       };
     };
 }
-
