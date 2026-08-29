@@ -1,11 +1,17 @@
 { pkgs, ... }:
-
 let
   cider-2 = pkgs.stdenv.mkDerivation rec {
     pname = "cider-2";
     version = "3.1.8";
 
-    src = ../binaries/cider.deb;
+    src = pkgs.requireFile {
+      name = "cider.deb";
+      sha256 = "0a2lmn042ddc4pf8szksj64y659cw4rqbbv9jv22q4fjh1b592vi";
+      message = ''
+        Download the cider.deb file from the official source and place it in the Nix store. You can use the following command to download it:
+          nix-store --add-fixed sha256 /path/to/cider.deb
+      ''
+    };
 
     nativeBuildInputs = with pkgs; [
       binutils
