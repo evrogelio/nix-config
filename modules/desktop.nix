@@ -42,5 +42,6 @@
     figma-linux
     transmission_4-qt
     playerctl
+    vscode-fhs
   ];
 }
