@@ -1,7 +1,7 @@
 (defcfg
   process-unmapped-keys yes
-  linux-dev-names-exclude(
-    "Galaxy Buds2 Pro (AVRCP)",
+  linux-dev-names-exclude (
+    "Galaxy Buds2 Pro (AVRCP)"
     "HAYLOU S30 (AVRCP)"
   )
 )
@@ -9,20 +9,22 @@
 (defsrc
   caps a s d f j k l ;
 )
+
 (defvar
   tap-time 150
   hold-time 200
 )
 
 (defalias
-  a (tap-hold-release $tap-time $hold-time (multi a f24) lmet)
-  s (multi f24 (tap-hold $tap-time $hold-time s lalt))
-  d (multi f24 (tap-hold $tap-time $hold-time d lsft))
-  f (multi f24 (tap-hold $tap-time $hold-time f lctl))
-  j (multi f24 (tap-hold $tap-time $hold-time j rctl))
-  k (multi f24 (tap-hold $tap-time $hold-time k rsft))
-  l (multi f24 (tap-hold $tap-time $hold-time l ralt))
-  ; (multi f24 (tap-hold $tap-time $hold-time ; rmet))
+  a (tap-hold-release $tap-time $hold-time a lmet)
+  s (tap-hold-release $tap-time $hold-time s lalt)
+  d (tap-hold-release $tap-time $hold-time d lsft)
+  f (tap-hold-release $tap-time $hold-time f lctl)
+
+  j (tap-hold-release $tap-time $hold-time j rctl)
+  k (tap-hold-release $tap-time $hold-time k rsft)
+  l (tap-hold-release $tap-time $hold-time l ralt)
+  ; (tap-hold-release $tap-time $hold-time ; rmet)
 )
 
 (deflayer base
