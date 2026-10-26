@@ -6,7 +6,7 @@ let
 
     src = pkgs.requireFile {
       name = "cider.deb";
-      sha256 = "0a2lmn042ddc4pf8szksj64y659cw4rqbbv9jv22q4fjh1b592vi";
+      sha256 = "15aw2k82y9j8qm0xrcsly5mc97j82lig2zxa32j66xdj9i5yka89";
       message = ''
         Download the cider.deb file from the official source and place it in the Nix store. You can use the following command to download it:
           nix-store --add-fixed sha256 /path/to/cider.deb
@@ -76,13 +76,10 @@ let
     '';
 
     postFixup = ''
-      # Wrap the REAL binary from the lib folder and place the wrapper in bin/cider
-      # Note the capital 'C' in the source path from your logs
       makeWrapper $out/lib/cider/Cider $out/bin/cider \
-        --add-flags "--no-sandbox" \
+        --add-flags "--no-sandbox --ozone-platform=x11" \
         --prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath buildInputs}"
         
-      # Fix the desktop file to use our lowercase 'cider' wrapper
       substituteInPlace $out/share/applications/cider.desktop \
         --replace "/usr/bin/cider" "cider"
     '';
