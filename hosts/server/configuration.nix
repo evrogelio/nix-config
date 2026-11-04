@@ -1,15 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
     ../nixos-common.nix
-    ./hardware-configuration.nix 
+    ./hardware-configuration.nix
   ];
 
   networking.hostName = "server";
 
-  services.displayManager.sddm.enable = false;
-  programs.hyprland.enable = false;
+  services.displayManager.sddm.enable = lib.mkForce false;
+  programs.hyprland.enable = lib.mkForce false;
 
   services.openssh = {
     enable = true;

@@ -59,7 +59,7 @@
               home-manager.users.rogelioev = {
                 imports = [
                   ./home.nix
-                  ./modules/home/cli-tools.nix
+                  ./modules/cli-tools.nix
                 ];
               };
             }
