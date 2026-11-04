@@ -48,6 +48,25 @@
         };
       };
 
+      server = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/server/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.rogelioev = {
+              imports = [
+                ./home.nix
+                ./modules/home/cli-tools.nix
+              ];
+            };
+          }
+        ];
+      };
+
       homeConfigurations.rogelioev = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
